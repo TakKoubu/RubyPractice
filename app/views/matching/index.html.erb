@@ -8,7 +8,8 @@
     <div class="matching__list">
       <% unless @match_users.empty? %>
         <% @match_users.each do |user| %>
-         <div class="matching__person">
+          <%= link_to chat_rooms_path(params: { user_id: user.id }), method: :post do %>
+          <div class="matching__person">
 
            <% if user.profile_image.url.nil? %>
              <div class="matching__person-default-img"></div>
@@ -19,8 +20,8 @@
            <div class="matching__person-name">
              <%= user.name %>
            </div>
-
          </div>
+         <% end%>
         <% end %>
       <% end %>
     </div>
